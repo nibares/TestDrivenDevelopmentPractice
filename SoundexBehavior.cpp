@@ -178,18 +178,3 @@ SCENARIO( "Does not Combines Duplicate Codes When Separated by Vowels", "[Sounde
 		}
 	} //EndGiven
 } //End Scenario
-
-SCENARIO( "Prueba con Mazzali", "[SoundexEncoding]" ) {
-	Soundex soundex;
-	std::string encoded;
-
-	GIVEN("A word like Jbob)"){
-		WHEN("Soundex encodes the word."){
-			encoded = soundex.encode("Mazzali");
-
-			THEN("Y muestra el codigo."){
-					REQUIRE(encoded == "J110");
-			}
-		}
-	} //EndGiven
-} //End Scenario
