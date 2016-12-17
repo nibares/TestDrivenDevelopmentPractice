@@ -4,14 +4,20 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../PlaceDescriptionService.cpp \
+../PlaceDescriptionServiceBehavior.cpp \
 ../Soundex.cpp \
 ../SoundexBehavior.cpp 
 
 OBJS += \
+./PlaceDescriptionService.o \
+./PlaceDescriptionServiceBehavior.o \
 ./Soundex.o \
 ./SoundexBehavior.o 
 
 CPP_DEPS += \
+./PlaceDescriptionService.d \
+./PlaceDescriptionServiceBehavior.d \
 ./Soundex.d \
 ./SoundexBehavior.d 
 

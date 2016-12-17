@@ -19,7 +19,13 @@ public:
 	virtual ~PlaceDescriptionService();
 
    std::string summaryDescription(const std::string& latitude, const std::string& longitude) const{
-	   return "";
+	   auto getRequestUrl = "";
+	   auto jsonResponse = http_->get(getRequestUrl);
+
+	   AddressExtractor extractor;
+	   auto address = extractor.addressFrom(jsonResponse);
+
+	   return address.road + ", " + address.city + ", " + address.state + ", " + address.country;
    };
 
 
