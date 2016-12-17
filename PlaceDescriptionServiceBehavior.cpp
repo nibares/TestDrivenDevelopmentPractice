@@ -20,11 +20,21 @@ const std::string APlaceDescriptionService::validLongitude("-104.44");
 class HttpStub: public Http {
 	void initialize() override {};
 	std::string get(const std::string& url) const override{
+
+		verify(url);
+
 		return R"({ "address": {
 		"road":"Drury Ln",
 		"city":"Fountain",
 		"state":"CO",
 		"country":"US" }})";
+	}
+
+	void verify(const std::string& url) const{
+		std::string urlStart("http://open.mapquestapi.com/nominatim/v1/reverse?format=json&");
+
+		std::string expectedArgs = urlStart + "lat=" + APlaceDescriptionService::validLatitude + "&lon=" + APlaceDescriptionService::validLongitude;
+		REQUIRE(url.find(expectedArgs)!=std::string::npos);
 	}
 };
 

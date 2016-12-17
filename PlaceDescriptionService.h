@@ -10,6 +10,7 @@
 #include "Http.h"
 #include "string"
 #include "Address.h"
+#include "AddressExtractor.h"
 
 class PlaceDescriptionService {
 public:
@@ -19,7 +20,7 @@ public:
 	virtual ~PlaceDescriptionService();
 
    std::string summaryDescription(const std::string& latitude, const std::string& longitude) const{
-	   auto getRequestUrl = "";
+	   auto getRequestUrl = "lat=" + latitude + "&lon=" + longitude;
 	   auto jsonResponse = http_->get(getRequestUrl);
 
 	   AddressExtractor extractor;

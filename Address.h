@@ -8,15 +8,15 @@
 #ifndef ADDRESS_H_
 #define ADDRESS_H_
 
-#include "String.h"
+#include "string"
 
 class Address{
 
 public:
 	std::string road, city, state, country;
 
-	Address();
-	~Address();
+	Address(){};
+	~Address(){};
 };
 
 
